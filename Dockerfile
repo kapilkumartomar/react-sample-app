@@ -5,7 +5,7 @@ ENV NODE_ENV production
 WORKDIR /app
 # Cache and Install dependencies
 COPY package.json .
-COPY yarn.lock .
+COPY package-lock.json .
 RUN yarn install --production
 # Copy app files
 COPY . .
@@ -22,4 +22,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose port
 EXPOSE 80
 # Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]  
